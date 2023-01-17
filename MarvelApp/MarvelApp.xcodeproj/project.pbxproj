@@ -16,6 +16,8 @@
 		4064AE7129766ACB0016941B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4064AE6F29766ACB0016941B /* LaunchScreen.storyboard */; };
 		4064AE7929766DB20016941B /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4064AE7829766DB20016941B /* UIImageViewExtension.swift */; };
 		4064AE7B29766DCB0016941B /* MarvelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4064AE7A29766DCB0016941B /* MarvelModel.swift */; };
+		4064AE7E29766E350016941B /* MarvelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4064AE7C29766E350016941B /* MarvelTableViewCell.swift */; };
+		4064AE7F29766E350016941B /* MarvelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4064AE7D29766E350016941B /* MarvelTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		4064AE7229766ACB0016941B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4064AE7829766DB20016941B /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		4064AE7A29766DCB0016941B /* MarvelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelModel.swift; sourceTree = "<group>"; };
+		4064AE7C29766E350016941B /* MarvelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelTableViewCell.swift; sourceTree = "<group>"; };
+		4064AE7D29766E350016941B /* MarvelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarvelTableViewCell.xib; sourceTree = "<group>"; };
 		5A3248CA5DDD8B9D7FAED6EC /* Pods-MarvelApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelApp.release.xcconfig"; path = "Target Support Files/Pods-MarvelApp/Pods-MarvelApp.release.xcconfig"; sourceTree = "<group>"; };
 		72DD81C36E594D0B556EF7C9 /* Pods-MarvelApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelApp.debug.xcconfig"; path = "Target Support Files/Pods-MarvelApp/Pods-MarvelApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DEDA4D814245890E0050D39B /* Pods_MarvelApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +75,8 @@
 				4064AE6629766ACA0016941B /* SceneDelegate.swift */,
 				4064AE6829766ACA0016941B /* ViewController.swift */,
 				4064AE7829766DB20016941B /* UIImageViewExtension.swift */,
+				4064AE7C29766E350016941B /* MarvelTableViewCell.swift */,
+				4064AE7D29766E350016941B /* MarvelTableViewCell.xib */,
 				4064AE7A29766DCB0016941B /* MarvelModel.swift */,
 				4064AE6A29766ACA0016941B /* Main.storyboard */,
 				4064AE6D29766ACB0016941B /* Assets.xcassets */,
@@ -159,6 +165,7 @@
 			files = (
 				4064AE7129766ACB0016941B /* LaunchScreen.storyboard in Resources */,
 				4064AE6E29766ACB0016941B /* Assets.xcassets in Resources */,
+				4064AE7F29766E350016941B /* MarvelTableViewCell.xib in Resources */,
 				4064AE6C29766ACA0016941B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4064AE7E29766E350016941B /* MarvelTableViewCell.swift in Sources */,
 				4064AE6929766ACA0016941B /* ViewController.swift in Sources */,
 				4064AE6529766ACA0016941B /* AppDelegate.swift in Sources */,
 				4064AE7929766DB20016941B /* UIImageViewExtension.swift in Sources */,
