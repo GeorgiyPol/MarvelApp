@@ -21,7 +21,6 @@ class ViewController: UIViewController {
     
     func configureTableView() {
         
-        self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 44
