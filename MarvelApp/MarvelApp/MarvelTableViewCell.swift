@@ -10,11 +10,11 @@ import UIKit
 class MarvelTableViewCell: UITableViewCell {
     
     @IBOutlet weak var img: UIImageView!
-    //@IBOutlet weak var labelName: UILabel!
+    @IBOutlet weak var labelName: UILabel!
     
     var marvelCharacter: Result! {
         didSet {
-            //self.labelName.text = self.marvelCharacter.name
+            self.labelName.text = self.marvelCharacter.name
             self.img.setImage(imageUrl: self.marvelCharacter.getThumbnailUrl())
         }
     }

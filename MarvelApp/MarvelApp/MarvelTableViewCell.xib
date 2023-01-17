@@ -22,17 +22,28 @@
                             <constraint firstAttribute="width" secondItem="cZT-OR-CvA" secondAttribute="height" multiplier="1:1" id="y77-hb-hCW"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilh-Xm-ytt">
+                        <rect key="frame" x="179" y="71" width="105" height="32"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cZT-OR-CvA" secondAttribute="bottom" constant="1" id="5Dl-mE-ee4"/>
                     <constraint firstItem="cZT-OR-CvA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="K6E-nH-VMq"/>
+                    <constraint firstItem="ilh-Xm-ytt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="71" id="QI9-CL-MLS"/>
+                    <constraint firstItem="ilh-Xm-ytt" firstAttribute="leading" secondItem="cZT-OR-CvA" secondAttribute="trailing" constant="20" id="gOS-fV-Iw6"/>
                     <constraint firstItem="cZT-OR-CvA" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.476667" id="jQ1-jU-6go"/>
+                    <constraint firstAttribute="bottom" secondItem="ilh-Xm-ytt" secondAttribute="bottom" constant="72" id="nLh-pY-q75"/>
                     <constraint firstItem="cZT-OR-CvA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="shR-KQ-XAz"/>
+                    <constraint firstAttribute="trailing" secondItem="ilh-Xm-ytt" secondAttribute="trailing" constant="16" id="wH8-PJ-K4v"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="img" destination="cZT-OR-CvA" id="zDk-u1-C1P"/>
+                <outlet property="labelName" destination="ilh-Xm-ytt" id="lJW-Gs-Fnj"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="118.86160714285714"/>
         </tableViewCell>
