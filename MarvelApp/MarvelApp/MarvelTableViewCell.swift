@@ -14,7 +14,7 @@ class MarvelTableViewCell: UITableViewCell {
     
     var marvelCharacter: Result! {
         didSet {
-            self.labelName.text = self.marvelCharacter.name
+            //self.labelName.text = self.marvelCharacter.name
             self.img.setImage(imageUrl: self.marvelCharacter.getThumbnailUrl())
         }
     }
