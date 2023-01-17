@@ -17,33 +17,22 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cZT-OR-CvA">
-                        <rect key="frame" x="16" y="16" width="120" height="143"/>
+                        <rect key="frame" x="16" y="16" width="143" height="143"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="cZT-OR-CvA" secondAttribute="height" multiplier="120:143" id="bLM-xw-PUc"/>
+                            <constraint firstAttribute="width" secondItem="cZT-OR-CvA" secondAttribute="height" multiplier="1:1" id="y77-hb-hCW"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKv-4v-lo2">
-                        <rect key="frame" x="152" y="77" width="132" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="cZT-OR-CvA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="8L2-ON-SKj"/>
-                    <constraint firstAttribute="bottom" secondItem="HKv-4v-lo2" secondAttribute="bottom" constant="77" id="era-1Y-XDJ"/>
-                    <constraint firstItem="cZT-OR-CvA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="fvC-mn-eKS"/>
-                    <constraint firstItem="HKv-4v-lo2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="77" id="i4O-xY-e4W"/>
-                    <constraint firstAttribute="trailing" secondItem="HKv-4v-lo2" secondAttribute="trailing" constant="16" id="jen-MI-Diz"/>
-                    <constraint firstItem="HKv-4v-lo2" firstAttribute="leading" secondItem="cZT-OR-CvA" secondAttribute="trailing" constant="16" id="mrd-jQ-oJu"/>
-                    <constraint firstItem="cZT-OR-CvA" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.4" id="oh0-3e-Lgq"/>
-                    <constraint firstAttribute="bottom" secondItem="cZT-OR-CvA" secondAttribute="bottom" constant="16" id="pKr-yp-P2D"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cZT-OR-CvA" secondAttribute="bottom" constant="1" id="5Dl-mE-ee4"/>
+                    <constraint firstItem="cZT-OR-CvA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="K6E-nH-VMq"/>
+                    <constraint firstItem="cZT-OR-CvA" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.476667" id="jQ1-jU-6go"/>
+                    <constraint firstItem="cZT-OR-CvA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="shR-KQ-XAz"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="img" destination="cZT-OR-CvA" id="zDk-u1-C1P"/>
-                <outlet property="labelName" destination="HKv-4v-lo2" id="x3M-Rp-UhW"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="118.86160714285714"/>
         </tableViewCell>

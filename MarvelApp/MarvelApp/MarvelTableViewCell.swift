@@ -10,7 +10,7 @@ import UIKit
 class MarvelTableViewCell: UITableViewCell {
     
     @IBOutlet weak var img: UIImageView!
-    @IBOutlet weak var labelName: UILabel!
+    //@IBOutlet weak var labelName: UILabel!
     
     var marvelCharacter: Result! {
         didSet {

@@ -28,7 +28,6 @@ class ViewController: UIViewController {
         AF.request(self.urlMarvel).responseDecodable(of: Welcome.self) { (response) in
             guard let char = response.value else { return }
             let characters = char.data.results
-            print(response)
             self.marvel = characters
             self.tableView.reloadData()
         }
