@@ -16,6 +16,8 @@ class MyCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.numberOfLines = 0
+        label.textColor = .white
+        label.font = UIFont(name:"marvel-regular", size: 15.0)
         return label
     }()
     
@@ -25,6 +27,7 @@ class MyCell: UICollectionViewCell {
         img.layer.cornerRadius = 10
         img.clipsToBounds = true
         img.layer.borderWidth = 3
+        img.contentMode = .scaleAspectFill
         return img
     }()
     
@@ -32,8 +35,8 @@ class MyCell: UICollectionViewCell {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-        stack.distribution = .equalSpacing
-        stack.spacing = 5
+        stack.distribution = .fillEqually
+        stack.spacing = 0
         return stack
     }()
     
@@ -46,19 +49,23 @@ class MyCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
+        contentView.clipsToBounds = true
+        
         stack.addArrangedSubview(imageView)
         stack.addArrangedSubview(label)
         contentView.addSubview(stack)
-
-        contentView.backgroundColor = .systemGray6
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
         
         NSLayoutConstraint.activate([
-            imageView.heightAnchor.constraint(equalToConstant: 150),
-            imageView.widthAnchor.constraint(equalToConstant: 150),
+            stack.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
+            stack.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor),
             
-            stack.centerXAnchor.constraint(equalTo:  contentView.centerXAnchor),
-            stack.centerYAnchor.constraint(equalTo:  contentView.centerYAnchor),
+            stack.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
+            stack.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
 
@@ -66,7 +73,6 @@ class MyCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
 
 extension UIImageView {
     func setImage(imageUrl: String) {

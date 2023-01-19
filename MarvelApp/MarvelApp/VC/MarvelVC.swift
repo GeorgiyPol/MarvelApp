@@ -34,8 +34,10 @@ class MarvelVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Marvel Heroes"
+        
         fetchData()
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .black
         collectionView.dataSource = self
         collectionView.delegate = self
 
