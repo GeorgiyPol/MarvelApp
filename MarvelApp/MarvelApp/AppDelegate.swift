@@ -12,28 +12,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    //func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//
-//        window = UIWindow(frame: UIScreen.main.bounds)
-//        window?.makeKeyAndVisible()
-//        window?.backgroundColor = .systemBackground
-//        window?.rootViewController = MarvelVC()
-//
-//        return true
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        window?.backgroundColor = .black // цвет всей вьюшки
         
+        let navigationController = UINavigationController(rootViewController: MarvelVC())
+        window?.rootViewController = navigationController
         
+        navigationController.navigationBar.prefersLargeTitles = true
         
-        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-            
-            let navigationController = UINavigationController.init(rootViewController: MarvelVC())
-            self.window = UIWindow.init(frame: UIScreen.main.bounds)
-            self.window?.rootViewController = navigationController
-            self.window?.makeKeyAndVisible()
-            let navigationBarAppearance = UINavigationBarAppearance()
-            navigationBarAppearance.backgroundColor = .white
-            navigationController.navigationBar.scrollEdgeAppearance = navigationBarAppearance
-            navigationController.navigationBar.prefersLargeTitles = true
-            
-            return true
-        }
+        let attrs = [
+            NSAttributedString.Key.foregroundColor: UIColor.label,
+            NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)
+        ]
+        
+        navigationController.navigationBar.largeTitleTextAttributes = attrs
+        
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().backgroundColor = .black // цвет фона навбара
+        UINavigationBar.appearance().prefersLargeTitles = true
+        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white] // цвет шрифта нав бара
+        return true
+    }
 }
+

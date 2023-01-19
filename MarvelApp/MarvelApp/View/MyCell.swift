@@ -35,8 +35,8 @@ class MyCell: UICollectionViewCell {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-        stack.distribution = .fillEqually
-        stack.spacing = 0
+        stack.distribution = .fill
+        stack.spacing = 15
         return stack
     }()
     
