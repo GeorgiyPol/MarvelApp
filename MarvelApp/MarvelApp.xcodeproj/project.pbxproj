@@ -8,25 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		0ABC0A0E5B0706C2C58BBFD4 /* Pods_MarvelApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDA4D814245890E0050D39B /* Pods_MarvelApp.framework */; };
+		4061124529791F510032D621 /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4061124429791F510032D621 /* MyCell.swift */; };
 		4064AE6529766ACA0016941B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4064AE6429766ACA0016941B /* AppDelegate.swift */; };
 		4064AE6929766ACA0016941B /* MarvelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4064AE6829766ACA0016941B /* MarvelVC.swift */; };
 		4064AE6E29766ACB0016941B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4064AE6D29766ACB0016941B /* Assets.xcassets */; };
 		4064AE7129766ACB0016941B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4064AE6F29766ACB0016941B /* LaunchScreen.storyboard */; };
-		4064AE7929766DB20016941B /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4064AE7829766DB20016941B /* UIImageViewExtension.swift */; };
 		4064AE7B29766DCB0016941B /* MarvelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4064AE7A29766DCB0016941B /* MarvelModel.swift */; };
-		4064AE7E29766E350016941B /* MarvelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4064AE7C29766E350016941B /* MarvelTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4061124429791F510032D621 /* MyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		4064AE6129766ACA0016941B /* MarvelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4064AE6429766ACA0016941B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4064AE6829766ACA0016941B /* MarvelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelVC.swift; sourceTree = "<group>"; };
 		4064AE6D29766ACB0016941B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4064AE7029766ACB0016941B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4064AE7229766ACB0016941B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4064AE7829766DB20016941B /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		4064AE7A29766DCB0016941B /* MarvelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelModel.swift; sourceTree = "<group>"; };
-		4064AE7C29766E350016941B /* MarvelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelTableViewCell.swift; sourceTree = "<group>"; };
 		5A3248CA5DDD8B9D7FAED6EC /* Pods-MarvelApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelApp.release.xcconfig"; path = "Target Support Files/Pods-MarvelApp/Pods-MarvelApp.release.xcconfig"; sourceTree = "<group>"; };
 		72DD81C36E594D0B556EF7C9 /* Pods-MarvelApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelApp.debug.xcconfig"; path = "Target Support Files/Pods-MarvelApp/Pods-MarvelApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DEDA4D814245890E0050D39B /* Pods_MarvelApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +58,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		4061124329791F420032D621 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4061124429791F510032D621 /* MyCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4064AE5829766ACA0016941B = {
 			isa = PBXGroup;
 			children = (
@@ -83,9 +89,8 @@
 			children = (
 				4064AE6429766ACA0016941B /* AppDelegate.swift */,
 				4061124129791EDD0032D621 /* VC */,
-				4064AE7829766DB20016941B /* UIImageViewExtension.swift */,
 				4061124229791F140032D621 /* Model */,
-				4064AE7C29766E350016941B /* MarvelTableViewCell.swift */,
+				4061124329791F420032D621 /* View */,
 				4064AE6D29766ACB0016941B /* Assets.xcassets */,
 				4064AE6F29766ACB0016941B /* LaunchScreen.storyboard */,
 				4064AE7229766ACB0016941B /* Info.plist */,
@@ -224,10 +229,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4064AE7E29766E350016941B /* MarvelTableViewCell.swift in Sources */,
 				4064AE6929766ACA0016941B /* MarvelVC.swift in Sources */,
 				4064AE6529766ACA0016941B /* AppDelegate.swift in Sources */,
-				4064AE7929766DB20016941B /* UIImageViewExtension.swift in Sources */,
+				4061124529791F510032D621 /* MyCell.swift in Sources */,
 				4064AE7B29766DCB0016941B /* MarvelModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
