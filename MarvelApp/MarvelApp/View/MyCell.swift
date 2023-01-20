@@ -17,7 +17,7 @@ class MyCell: UICollectionViewCell {
         label.textAlignment = .center
         label.numberOfLines = 0
         label.textColor = .white
-        label.font = UIFont(name:"marvel-regular", size: 15.0)
+        label.font = UIFont(name:"marvel-regular", size: 20.0)
         return label
     }()
     
@@ -28,6 +28,8 @@ class MyCell: UICollectionViewCell {
         img.clipsToBounds = true
         img.layer.borderWidth = 3
         img.contentMode = .scaleAspectFill
+        img.layer.borderWidth = 1
+        img.layer.borderColor = UIColor.red.cgColor.copy(alpha: 0.5)
         return img
     }()
     
@@ -42,7 +44,7 @@ class MyCell: UICollectionViewCell {
     
     var marvelCharacter: Result! {
         didSet {
-            self.label.text = self.marvelCharacter.name
+            self.label.text = self.marvelCharacter.name.uppercased()
             self.imageView.setImage(imageUrl: self.marvelCharacter.getThumbnailUrl())
         }
     }
