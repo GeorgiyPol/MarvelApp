@@ -11,15 +11,16 @@ import UIKit
 
 class AdditionalVC: UIViewController {
 
+    var additionalView: AdditionalView? {
+        guard isViewLoaded else { return nil }
+        return view as? AdditionalView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        view = AdditionalView()
         view.backgroundColor = .black
+        title = "Hero name".uppercased()
     }
 }
-
-/*
- 
- 
- */

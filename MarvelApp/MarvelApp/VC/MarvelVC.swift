@@ -111,6 +111,8 @@ extension MarvelVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //print(indexPath.row + 1)
         
-        navigationController?.present(AdditionalVC(), animated: true, completion: nil)
+        let addNavigationController = UINavigationController(rootViewController: AdditionalVC())
+        navigationController?.present(addNavigationController, animated: true)
+        
     }
 }
