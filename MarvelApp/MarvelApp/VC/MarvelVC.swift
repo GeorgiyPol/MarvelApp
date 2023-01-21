@@ -21,6 +21,7 @@ class MarvelVC: UIViewController {
     }()
     
     private let urlMarvel = "https://gateway.marvel.com/v1/public/characters?ts=10&apikey=31a63b3b088f1225ef9e5d5f56a97b85&hash=070548dfe73f5680972208e2cb02f1f7"
+    //http://gateway.marvel.com/v1/public/characters/1011334?ts=10&apikey=31a63b3b088f1225ef9e5d5f56a97b85&hash=070548dfe73f5680972208e2cb02f1f7
     var marvel: [Result] = []
     
     override func loadView() {

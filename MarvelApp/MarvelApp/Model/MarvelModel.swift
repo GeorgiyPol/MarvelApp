@@ -21,10 +21,14 @@ struct DataClass: Decodable {
 struct Result: Decodable {
     let name: String
     let thumbnail: Image
+    
+    let title: String?
+    let description: String?
+    let images: [Thumbnail]?
 }
 
 // MARK: - Thumbnail
-struct Image: Codable {
+struct Image: Decodable {
     let path: String
     let thumbnailExtension: Extension
 
@@ -34,7 +38,18 @@ struct Image: Codable {
     }
 }
 
-enum Extension: String, Codable {
+// MARK: - Thumbnail
+struct Thumbnail: Decodable {
+    let path: String
+    let thumbnailExtension: Extension
+
+    enum CodingKeys: String, CodingKey {
+        case path
+        case thumbnailExtension = "extension"
+    }
+}
+
+enum Extension: String, Decodable {
     case gif = "gif"
     case jpg = "jpg"
 }
