@@ -108,6 +108,8 @@ extension MarvelVC: UICollectionViewDataSource {
 extension MarvelVC: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row + 1)
+        //print(indexPath.row + 1)
+        
+        navigationController?.present(AdditionalVC(), animated: true, completion: nil)
     }
 }
