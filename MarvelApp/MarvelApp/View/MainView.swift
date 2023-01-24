@@ -15,13 +15,15 @@ class MainView: UIView {
         let textField = UITextField()
         textField.placeholder = "Enter text here"
         textField.font = UIFont.systemFont(ofSize: 15)
+        textField.layer.cornerRadius = 5
+        textField.backgroundColor = .systemGray6
         textField.borderStyle = UITextField.BorderStyle.roundedRect
-        textField.backgroundColor = .systemGray
         textField.translatesAutoresizingMaskIntoConstraints = false
+
         return textField
     }()
     
-    var spinnerIndicator: UIActivityIndicatorView = {
+    lazy var spinnerIndicator: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
         spinner.hidesWhenStopped = true
         spinner.translatesAutoresizingMaskIntoConstraints = false
@@ -30,16 +32,15 @@ class MainView: UIView {
     
     lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
         collectionView.register(MyCell.self, forCellWithReuseIdentifier: "MyCell")
         return collectionView
     }()
     
     lazy var separatorLine: UIView = {
         let separator = UIView()
-        separator.backgroundColor = .yellow
+        separator.backgroundColor = .systemGray6
+        separator.layer.cornerRadius = 5
         separator.translatesAutoresizingMaskIntoConstraints = false
         return separator
     }()
@@ -70,7 +71,15 @@ class MainView: UIView {
         
         setupHierarchy()
         setupView()
+        
+        self.searchTextField.addTarget(self, action: #selector(editingChanged(_:)), for: .editingChanged)
     }
+    
+    @objc func editingChanged(_ textField: UITextField) {
+        let textFieldString = textField.text ?? "Some string?" // HERO name
+        
+        print(textFieldString + "  editingChanged")
+     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -82,14 +91,16 @@ class MainView: UIView {
         addSubview(spinnerIndicator)
         addSubview(collectionView)
 
+        //searchTextField
         NSLayoutConstraint.activate([
             searchTextField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0),
-            searchTextField.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 5),
-            searchTextField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 5),
+            searchTextField.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0),
+            searchTextField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 0),
             searchTextField.heightAnchor.constraint(equalToConstant: 40)
 
         ])
         
+        //separatorLine
         NSLayoutConstraint.activate([
             separatorLine.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 5),
             separatorLine.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0),
@@ -97,20 +108,19 @@ class MainView: UIView {
             separatorLine.heightAnchor.constraint(equalToConstant: 3)
         ])
         
+        //spinnerIndicator
         NSLayoutConstraint.activate([
             spinnerIndicator.centerXAnchor.constraint(equalTo: searchTextField.centerXAnchor),
             spinnerIndicator.centerYAnchor.constraint(equalTo: searchTextField.centerYAnchor),
         ])
         
+        //collectionView
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: searchTextField.bottomAnchor),
+            collectionView.topAnchor.constraint(equalTo: separatorLine.bottomAnchor, constant: 5),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
         ])
-        
-        
-        
     }
     
     private func setupView() {

@@ -43,7 +43,13 @@ class MarvelVC: UIViewController {
             self.marvel = characters
             self.mainView?.spinnerIndicator.stopAnimating()
             self.mainView?.collectionView.reloadData()
+            
+            self.searchHero()
         }
+    }
+    
+    func searchHero() {
+        print(marvel)
     }
 }
 
@@ -58,6 +64,7 @@ extension MarvelVC: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as! MyCell
         cell.marvelCharacter = self.marvel[indexPath.row]
         return cell
