@@ -46,6 +46,19 @@ class AdditionalView: UIView {
         return label
     }()
     
+    let labelPrice: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.textColor = .white
+        label.font = UIFont(name:"marvel-regular", size: 10.0)
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.text = "This is a Price..."
+        label.textAlignment = .right
+        return label
+    }()
+    
     let stack: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -83,11 +96,19 @@ class AdditionalView: UIView {
         stack.addArrangedSubview(imageHero)
         stack.addArrangedSubview(labelTitle)
         stack.addArrangedSubview(labelDescription)
+        stack.addArrangedSubview(labelPrice)
         
         addSubview(stack)
     }
     
     private func setupView() {
         clipsToBounds = true
+    }
+    
+    func configureAddView(hero: ResultHero!) {
+        self.imageHero.setImage(imageUrl: hero.getThumbnailUrl())
+        self.labelTitle.text = hero.title
+        self.labelDescription.text = hero.description
+        self.labelPrice.text = hero.getComicPrice()
     }
 }
