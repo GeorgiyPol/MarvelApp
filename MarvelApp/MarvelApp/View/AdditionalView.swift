@@ -41,7 +41,7 @@ class AdditionalView: UIView {
         label.textAlignment = .center
         label.numberOfLines = 0
         label.textColor = .white
-        label.font = UIFont(name:"marvel-regular", size: 20.0)
+        label.font = UIFont(name: "HelveticaNeue", size: 12.0)
         label.text = "This is a Description..."
         return label
     }()
@@ -52,7 +52,7 @@ class AdditionalView: UIView {
         label.textAlignment = .center
         label.numberOfLines = 0
         label.textColor = .white
-        label.font = UIFont(name:"marvel-regular", size: 10.0)
+        label.font = UIFont(name:"marvel-regular", size: 5.0)
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.text = "This is a Price..."
         label.textAlignment = .right
