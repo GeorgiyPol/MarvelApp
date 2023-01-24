@@ -12,6 +12,8 @@ class MarvelVC: UIViewController {
 
     var collectionView: UICollectionView!
     
+    var idHero = Int()
+    
     private lazy var spinnerIndicator: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
         view.addSubview(spinner)
@@ -21,7 +23,9 @@ class MarvelVC: UIViewController {
     }()
     
     private let urlMarvel = "https://gateway.marvel.com/v1/public/characters?ts=10&apikey=31a63b3b088f1225ef9e5d5f56a97b85&hash=070548dfe73f5680972208e2cb02f1f7"
-    //http://gateway.marvel.com/v1/public/characters/1011334?ts=10&apikey=31a63b3b088f1225ef9e5d5f56a97b85&hash=070548dfe73f5680972208e2cb02f1f7
+    
+    //https://gateway.marvel.com:443/v1/public/characters/1011334/comics?ts=10&apikey=31a63b3b088f1225ef9e5d5f56a97b85&hash=070548dfe73f5680972208e2cb02f1f7
+    
     var marvel: [Result] = []
     
     override func loadView() {
@@ -58,7 +62,6 @@ class MarvelVC: UIViewController {
         AF.request(self.urlMarvel).responseDecodable(of: Welcome.self) { (response) in
             
             guard let char = response.value else { return }
-            
             let characters = char.data.results
             self.marvel = characters
             
@@ -109,10 +112,10 @@ extension MarvelVC: UICollectionViewDataSource {
 extension MarvelVC: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //print(indexPath.row + 1)
         
-        let addNavigationController = UINavigationController(rootViewController: AdditionalVC())
-        navigationController?.present(addNavigationController, animated: true)
-        
+        let additionalVC = AdditionalVC()
+        additionalVC.idHero = String(marvel[indexPath.row].id)
+        additionalVC.title = marvel[indexPath.row].name.uppercased()
+        navigationController?.pushViewController(additionalVC, animated: true)
     }
 }
