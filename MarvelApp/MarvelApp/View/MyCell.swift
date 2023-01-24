@@ -62,6 +62,7 @@ class MyCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        
         NSLayoutConstraint.activate([
             stack.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
             stack.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor),

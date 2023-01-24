@@ -29,9 +29,7 @@ class AdditionalVC: UIViewController {
     }
     
     func getData() {
-        
-        
-                
+    
         let urlMarvel =
             "https://gateway.marvel.com/v1/public/characters/" +
             "\(self.idHero)" +

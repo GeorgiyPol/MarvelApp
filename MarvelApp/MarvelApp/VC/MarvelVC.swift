@@ -10,85 +10,40 @@ import Alamofire
 
 class MarvelVC: UIViewController {
 
-    var collectionView: UICollectionView!
+    var mainView: MainView? {
+        guard isViewLoaded else { return nil }
+        return view as? MainView
+    }
     
     var idHero = Int()
     
-    private lazy var spinnerIndicator: UIActivityIndicatorView = {
-        let spinner = UIActivityIndicatorView(style: .large)
-        view.addSubview(spinner)
-        spinner.center = view.center
-        spinner.hidesWhenStopped = true
-        return spinner
-    }()
-    
-    private let urlMarvel = "https://gateway.marvel.com/v1/public/characters?ts=10&apikey=31a63b3b088f1225ef9e5d5f56a97b85&hash=070548dfe73f5680972208e2cb02f1f7"
-    
-    //https://gateway.marvel.com:443/v1/public/characters/1011334/comics?ts=10&apikey=31a63b3b088f1225ef9e5d5f56a97b85&hash=070548dfe73f5680972208e2cb02f1f7
-    
     var marvel: [Result] = []
-    
-    override func loadView() {
-        super.loadView()
-
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-
-        self.view.addSubview(collectionView)
-        
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        ])
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view = MainView()
         title = "Marvel Heroes".uppercased()
-        
-        fetchData()
-        collectionView.backgroundColor = .black
-        collectionView.dataSource = self
-        collectionView.delegate = self
+        self.mainView?.spinnerIndicator.startAnimating()
 
-        collectionView.register(MyCell.self, forCellWithReuseIdentifier: "MyCell")
+        fetchData()
+        
+        mainView?.collectionView.backgroundColor = .black
+        mainView?.collectionView.dataSource = self
+        mainView?.collectionView.delegate = self
     }
     
     func fetchData() {
-        spinnerIndicator.startAnimating()
-        AF.request(self.urlMarvel).responseDecodable(of: Welcome.self) { (response) in
+        let urlMarvel = "https://gateway.marvel.com/v1/public/characters?ts=10&apikey=31a63b3b088f1225ef9e5d5f56a97b85&hash=070548dfe73f5680972208e2cb02f1f7"
+        
+        AF.request(urlMarvel).responseDecodable(of: Welcome.self) { (response) in
             
             guard let char = response.value else { return }
             let characters = char.data.results
             self.marvel = characters
-            
-            self.spinnerIndicator.stopAnimating()
-            self.collectionView.reloadData()
+            self.mainView?.spinnerIndicator.stopAnimating()
+            self.mainView?.collectionView.reloadData()
         }
-    }
-    
-    private func createLayout() -> UICollectionViewLayout {
-
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                              heightDimension: .fractionalHeight(1))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .fractionalHeight(0.35))
-        
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
-        let spacing = CGFloat(10)
-        group.interItemSpacing = .fixed(spacing)
-        
-        let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = spacing
-        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10)
-        
-        let layout = UICollectionViewCompositionalLayout(section: section)
-        return layout
     }
 }
 
