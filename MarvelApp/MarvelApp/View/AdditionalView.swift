@@ -68,6 +68,14 @@ class AdditionalView: UIView {
         return stack
     }()
     
+    lazy var spinnerIndicator: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.hidesWhenStopped = true
+        spinner.backgroundColor = .white
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        return spinner
+    }()
+    
     override init(frame: CGRect) {
         super .init(frame: frame)
         
@@ -78,14 +86,20 @@ class AdditionalView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        //stack
         NSLayoutConstraint.activate([
             stack.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0),
             stack.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0),
-            
             stack.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0),
             stack.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 0),
-
         ])
+        
+        //spinnerIndicator
+        NSLayoutConstraint.activate([
+            spinnerIndicator.centerXAnchor.constraint(equalTo: imageHero.centerXAnchor),
+            spinnerIndicator.centerYAnchor.constraint(equalTo: imageHero.centerYAnchor),
+        ])
+        
     }
     
     required init?(coder: NSCoder) {
@@ -93,6 +107,8 @@ class AdditionalView: UIView {
     }
     
     private func setupHierarchy() {
+        imageHero.addSubview(spinnerIndicator)
+        
         stack.addArrangedSubview(imageHero)
         stack.addArrangedSubview(labelTitle)
         stack.addArrangedSubview(labelDescription)

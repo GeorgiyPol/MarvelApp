@@ -24,14 +24,13 @@ class AdditionalVC: UIViewController {
         
         view = AdditionalView()
         view.backgroundColor = .black
+        additionalView?.spinnerIndicator.startAnimating()
         
         getData()
     }
     
     func getData() {
-        
-        
-                
+    
         let urlMarvel =
             "https://gateway.marvel.com/v1/public/characters/" +
             "\(self.idHero)" +
@@ -43,6 +42,7 @@ class AdditionalVC: UIViewController {
             guard let char = response.value else { return }
             let hero = char.data.results
             self.marvel = hero
+            self.additionalView?.spinnerIndicator.stopAnimating()
             self.additionalView?.configureAddView(hero: self.marvel.first)
         }
     }
