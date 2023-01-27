@@ -8,7 +8,6 @@
 import UIKit
 import Alamofire
 
-
 class MarvelVC: UIViewController {
 
     var mainView: MainView? {
@@ -18,15 +17,7 @@ class MarvelVC: UIViewController {
 
     var idHero = Int()
     var marvel: [Result] = []
-    var marvelDuplicate: [Result] = []
-    var marvelForTextField: [Result] = []
-    
-///https://gateway.marvel.com/v1/public/characters?
-    ///ts=10&apikey=31a63b3b088f1225ef9e5d5f56a97b85&hash=070548dfe73f5680972208e2cb02f1f7
-    
-///https://gateway.marvel.com/v1/public/characters?name=A&ts=10&apikey=31a63b3b088f1225ef9e5d5f56a97b85&hash=070548dfe73f5680972208e2cb02f1f7
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,13 +33,11 @@ class MarvelVC: UIViewController {
     }
 
     func fetchData(with url: String) {
-
         AF.request(url).responseDecodable(of: Welcome.self) { (response) in
 
             guard let char = response.value else { return }
             let characters = char.data.results
             self.marvel = characters
-            self.marvelDuplicate = self.marvel
     
             self.mainView?.spinnerIndicator.stopAnimating()
             self.mainView?.collectionView.reloadData()
@@ -56,25 +45,16 @@ class MarvelVC: UIViewController {
             self.mainView?.searchTextField.addTarget(self, action: #selector(self.editingChanged(_:)), for: .editingChanged)
         }
     }
-
+    
     @objc func editingChanged(_ textField: UITextField) {
+        self.mainView?.spinnerIndicator.startAnimating()
         let textFieldString = textField.text ?? "Some string?"
-        print(makeUrlStringTest(name: textFieldString))
         
         if textFieldString.isEmpty {
-            marvel = marvelDuplicate
-            self.mainView?.collectionView.reloadData()
-            marvelForTextField.removeAll()
-        }
-        
-        AF.request(makeUrlStringTest(name: textFieldString)).responseDecodable(of: Welcome.self) { (response) in
-            
-            guard let char = response.value else { return }
-            let characters = char.data.results
-            self.marvel = characters
-            
-            self.mainView?.spinnerIndicator.stopAnimating()
-            self.mainView?.collectionView.reloadData()
+            fetchData(with: makeUrlString())
+        } else {
+            self.mainView?.spinnerIndicator.startAnimating()
+            fetchData(with: makeURLFilterHero(with: textFieldString))
         }
     }
 }
@@ -97,9 +77,10 @@ extension MarvelVC {
         return tryCreateMarvelURL
     }
     
-    func makeUrlStringTest(name: String) -> String {
-        let customURL = "https://gateway.marvel.com/v1/public/characters?name=\(name)&ts=10&apikey=31a63b3b088f1225ef9e5d5f56a97b85&hash=070548dfe73f5680972208e2cb02f1f7"
-        return customURL
+    func makeURLFilterHero(with heroName: String) -> String {
+        let filterURL = "https://gateway.marvel.com/v1/public/characters?nameStartsWith=\(heroName)&orderBy=name&ts=10&apikey=31a63b3b088f1225ef9e5d5f56a97b85&hash=070548dfe73f5680972208e2cb02f1f7"
+        
+        return filterURL
     }
 }
 
