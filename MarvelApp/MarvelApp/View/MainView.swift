@@ -11,7 +11,7 @@ import SwiftUI
 
 class MainView: UIView {
     
-    private lazy var searchTextField: UITextField = {
+    lazy var searchTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Enter text here"
         textField.font = UIFont.systemFont(ofSize: 15)
@@ -71,15 +71,7 @@ class MainView: UIView {
         
         setupHierarchy()
         setupView()
-        
-        self.searchTextField.addTarget(self, action: #selector(editingChanged(_:)), for: .editingChanged)
     }
-    
-    @objc func editingChanged(_ textField: UITextField) {
-        let textFieldString = textField.text ?? "Some string?" // HERO name
-        
-        print(textFieldString + "  editingChanged")
-     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
