@@ -13,7 +13,7 @@ class MainView: UIView {
     
     lazy var searchTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter text here"
+        textField.placeholder = "Enter the name of the hero..."
         textField.font = UIFont.systemFont(ofSize: 15)
         textField.layer.cornerRadius = 5
         textField.backgroundColor = .systemGray6
@@ -102,8 +102,9 @@ class MainView: UIView {
         
         //spinnerIndicator
         NSLayoutConstraint.activate([
-            spinnerIndicator.centerXAnchor.constraint(equalTo: searchTextField.centerXAnchor),
+            //spinnerIndicator.centerXAnchor.constraint(equalTo: searchTextField.centerXAnchor),
             spinnerIndicator.centerYAnchor.constraint(equalTo: searchTextField.centerYAnchor),
+            spinnerIndicator.trailingAnchor.constraint(equalTo: searchTextField.trailingAnchor, constant: -10)
         ])
         
         //collectionView

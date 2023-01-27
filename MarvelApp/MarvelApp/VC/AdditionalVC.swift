@@ -37,7 +37,7 @@ class AdditionalVC: UIViewController {
             "/comics?ts=10&apikey=31a63b3b088f1225ef9e5d5f56a97b85&hash=070548dfe73f5680972208e2cb02f1f7"
         
         
-        AF.request(urlMarvel).responseDecodable(of: MarvelHero.self) { (response) in // поменять модель декодирования
+        AF.request(urlMarvel).responseDecodable(of: MarvelHero.self) { (response) in
             
             guard let char = response.value else { return }
             let hero = char.data.results
