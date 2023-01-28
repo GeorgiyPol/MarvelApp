@@ -14,7 +14,7 @@
 - UIActivityIndicatorView
 
 ## Ресурс:
-[Marvel](https://developer.marvel.com)
+- [Marvel](https://developer.marvel.com)
 
 | exampleGif | LaunchScreen | mainScreen | addScreen |
 | ------------ | ------------ | ------------ | ------------ |
