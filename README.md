@@ -10,6 +10,8 @@
 - UICollectionView
 - CryptoKit
 - верстка кодом
+- UITextField
+- UIActivityIndicatorView
 
 ## Ресурс:
 [Marvel](https://developer.marvel.com)
